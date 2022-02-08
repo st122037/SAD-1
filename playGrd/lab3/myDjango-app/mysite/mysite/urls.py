@@ -21,5 +21,8 @@ import pure_html.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', teammate.views.index, name='index'),
-    path('pure_html/', pure_html.views.index , name='index')
+    path('pure_html/', pure_html.views.index , name='index'),
+    path('pure_html/index1.html', pure_html.views.index1, name='index1'),
+    path('pure_html/index2.html', pure_html.views.index2, name='index2'),
+    path('pure_html/index3.html', pure_html.views.index3, name='index3')
 ]
