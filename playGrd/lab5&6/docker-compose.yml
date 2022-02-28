@@ -1,0 +1,32 @@
+version: "3"
+services: 
+   
+    api:
+        build:
+            context: ./counter
+            dockerfile: Dockerfile
+  
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./counter/src:/home/src
+        
+        env_file:
+            - ./secret.env
+     
+
+    mongo:
+        image: mongo:3.6.22-xenial
+
+        env_file:
+            - ./secret.env
+
+    
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: 1234
+
+        volumes: 
+            - mongo-sad-lab6:/data/db
+volumes: 
+  mongo-sad-lab6:
